@@ -17,6 +17,18 @@ Rappel des règles :
 3. Les pierres sont posées les unes après les autres chacun son tour
 5. Lorsqu'une forme n'a plus de liberté elle est prise
 
+L'objectif du test est d'écrire une fonction `is_taken` qui prend en paramètre x, y et qui retourne vrai si la pierre à la position x, y est prise et faux sinon.
+Pour faire cette fonction on se base sur une fonction `get_status(x, y)` qui retourne :
+
+* Status.BLACK : quand la pierre à la position x, y est noire
+* Status.WHITE : quand la pierre à la position x, y est blanche
+* Status.EMPTY : quand il n'y a pas de pierre à la position x, y
+* Status.OUT : quand la position x, y est hors du goban
+
+
+Complétez la méthode `Goban.is_taken` avec votre solution (vous pouvez ajouter des paramètres à la méthode si besoin).
+Vous pouvez tester votre solution à tout moment avec `py.test` (les tests sont dans le fichier test_goban.py).
+
 Exemples :
 
 ```
@@ -50,15 +62,3 @@ oo.
 o#o
 .o.
 ```
-
-L'objectif du test est d'écrire une fonction `is_taken` qui prend en paramètre x, y et qui retourne vrai si la pierre à la position x, y est prise et faux sinon.
-Pour faire cette fonction on se base sur une fonction `get_status(x, y)` qui retourne :
-
-* Status.BLACK : quand la pierre à la position x, y est noire
-* Status.WHITE : quand la pierre à la position x, y est blanche
-* Status.EMPTY : quand il n'y a pas de pierre à la position x, y
-* Status.OUT : quand la position x, y est hors du goban
-
-
-Complétez la méthode `Goban.is_taken` avec votre solution (vous pouvez ajouter des paramètres à la méthode si besoin).
-Vous pouvez tester votre solution à tout moment avec `py.test` (les tests sont dans le fichier test_goban.py).
