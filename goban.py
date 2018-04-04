@@ -26,7 +26,7 @@ class Goban(object):
         Returns:
             a Status
         """
-        if not self.goban or x < 0 or y < 0 or y > len(self.goban) or x >= len(self.goban[0]):
+        if not self.goban or x < 0 or y < 0 or y >= len(self.goban) or x >= len(self.goban[0]):
             return Status.OUT
         elif self.goban[y][x] == '.':
             return Status.EMPTY
