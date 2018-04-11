@@ -1,3 +1,16 @@
+# Comment lancer le projet
+
+Pour commencer et lancer les tests : 
+
+```
+$ git clone https://github.com/lumapps/test-goban.git
+$ cd test-goban
+$ virtualenv env
+$ source env/bin/activate
+$ pip install -r requirements.txt
+$ pytest .
+```
+
 # Test technique
 
 Le thème de ce test est le jeu de go.
