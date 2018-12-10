@@ -39,7 +39,7 @@ Pour faire cette fonction on se base sur une fonction `get_status(x, y)` qui ret
 * Status.OUT : quand la position x, y est hors du goban
 
 
-Complétez la méthode `Goban.is_taken` avec votre solution (vous pouvez ajouter des paramètres à la méthode si besoin).
+Complétez la méthode `Goban.is_taken` avec votre solution (vous pouvez ajouter des paramètres à la méthode si besoin). Celle-ci doit respecter les bonnes pratiques du Python.
 Vous pouvez tester votre solution à tout moment avec `py.test` (les tests sont dans le fichier test_goban.py).
 
 Exemples :
