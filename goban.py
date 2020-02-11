@@ -5,6 +5,7 @@ class Status(enum.Enum):
     """
     Enum representing the Status of a position on a goban
     """
+
     WHITE = 1
     BLACK = 2
     EMPTY = 3
@@ -26,13 +27,19 @@ class Goban(object):
         Returns:
             a Status
         """
-        if not self.goban or x < 0 or y < 0 or y >= len(self.goban) or x >= len(self.goban[0]):
+        if (
+            not self.goban
+            or x < 0
+            or y < 0
+            or y >= len(self.goban)
+            or x >= len(self.goban[0])
+        ):
             return Status.OUT
-        elif self.goban[y][x] == '.':
+        elif self.goban[y][x] == ".":
             return Status.EMPTY
-        elif self.goban[y][x] == 'o':
+        elif self.goban[y][x] == "o":
             return Status.WHITE
-        elif self.goban[y][x] == '#':
+        elif self.goban[y][x] == "#":
             return Status.BLACK
 
     def is_taken(self, x, y):
