@@ -2,13 +2,13 @@
 
 # Comment lancer le projet
 
-Pour commencer et lancer les tests : 
+Pour commencer et lancer les tests :
 
 ```
 $ git clone https://github.com/lumapps/test-goban.git
 $ cd test-goban
-$ virtualenv env
-$ source env/bin/activate
+$ python3 -m venv venv
+$ source venv/bin/activate
 $ pip install -r requirements.txt
 $ pytest .
 ```
@@ -80,17 +80,17 @@ o#o
 
 ---
 
-[EN] 
+[EN]
 
-# Howto launch the project
+# How to launch the project
 
-To start and launch tests: 
+To start and launch tests:
 
 ```
 $ git clone https://github.com/lumapps/test-goban.git
 $ cd test-goban
-$ virtualenv env
-$ source env/bin/activate
+$ python3 -m venv venv
+$ source venv/bin/activate
 $ pip install -r requirements.txt
 $ pytest .
 ```
