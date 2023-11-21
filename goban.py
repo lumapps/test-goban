@@ -1,4 +1,5 @@
 import enum
+from typing import List
 
 
 class Status(enum.Enum):
@@ -12,11 +13,11 @@ class Status(enum.Enum):
     OUT = 4
 
 
-class Goban(object):
-    def __init__(self, goban):
+class Goban:
+    def __init__(self, goban: List[str]) -> None:
         self.goban = goban
 
-    def get_status(self, x, y):
+    def get_status(self, x: int, y: int) -> Status:
         """
         Get the status of a given position
 
@@ -41,6 +42,7 @@ class Goban(object):
             return Status.WHITE
         elif self.goban[y][x] == "#":
             return Status.BLACK
+        raise ValueError(f"Unknown goban value {self.goban[y][x]}")
 
-    def is_taken(self, x, y):
-        pass
+    def is_taken(self, x: int, y: int) -> bool:
+        raise NotImplementedError
