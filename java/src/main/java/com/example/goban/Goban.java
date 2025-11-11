@@ -10,20 +10,16 @@ public class Goban {
     }
 
     public Status getStatus(int x, int y) {
-        if (goban == null || goban.isEmpty() || x < 0 || y < 0 || y >= goban.size() || x >= goban.get(0).length()) {
+        if (goban == null || goban.isEmpty() || x < 0 || y < 0 || y >= goban.size() || x >= goban.getFirst().length()) {
             return Status.OUT;
         }
         char stone = goban.get(y).charAt(x);
-        switch (stone) {
-            case '.':
-                return Status.EMPTY;
-            case 'o':
-                return Status.WHITE;
-            case '#':
-                return Status.BLACK;
-            default:
-                throw new IllegalArgumentException("Unknown goban value " + stone);
-        }
+        return switch (stone) {
+            case '.' -> Status.EMPTY;
+            case 'o' -> Status.WHITE;
+            case '#' -> Status.BLACK;
+            default -> throw new IllegalArgumentException("Unknown goban value " + stone);
+        };
     }
 
     public boolean isTaken(int x, int y) {

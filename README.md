@@ -21,13 +21,19 @@ Write the function that returns whether the stone at `(x, y)` is taken:
 - Python: implement `Goban.is_taken(self, x, y)` in `python/goban.py`.
 - Java: implement `Goban.isTaken(int x, int y)` in `java/src/main/java/com/example/goban/Goban.java`.
 
+Return `True` / `true` only if the stone exists at `(x, y)` and the entire connected shape of that color has zero liberties.
+
 You may add helper functions / parameters if needed while keeping clear, idiomatic code.
 
-Use the provided status accessors:
+Make use of the provided status accessors:
 - Python: `get_status(x, y)` returns `Status.BLACK`, `Status.WHITE`, `Status.EMPTY`, or `Status.OUT`.
 - Java: `getStatus(x, y)` returns the equivalent `Status` enum values.
 
-Return `True` / `true` only if the stone exists at `(x, y)` and the entire connected shape of that color has zero liberties.
+The return values are:
+- `Status.BLACK`: when the stone at position x, y is black
+- `Status.WHITE`: when the stone at the x position, y is white
+- `Status.EMPTY`: when there is no stone at position x, y
+- `Status.OUT`: when the position x, y is out of the goban
 
 ## Examples
 ```
@@ -66,7 +72,7 @@ cd test-goban/python
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-pytest .
+PYTHONPATH=. pytest test_goban.py
 ```
 (Tests use direct module import `goban`; running inside `python/` ensures it is on the module search path.)
 
