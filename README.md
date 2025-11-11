@@ -1,156 +1,93 @@
-[FR]
+# Goban Technical Test
 
-# Comment lancer le projet
+This repository contains the same technical test implemented in two languages: Python and Java.
 
-Pour commencer et lancer les tests :
+## Goal
+Implement a method that determines whether the stone at position `x, y` on a goban (Go board) is taken (i.e. the entire shape it belongs to has no liberties).
 
-```
-$ git clone https://github.com/lumapps/test-goban.git
-$ cd test-goban
-$ python3 -m venv venv
-$ source venv/bin/activate
-$ pip install -r requirements.txt
-$ pytest .
-```
+## Vocabulary
+- **Goban**: the board on which stones are placed.
+- **Shape**: one or more orthogonally adjacent stones (`up`, `down`, `left`, `right`) of the same color. Diagonals do not count.
+- **Liberty**: an empty point orthogonally adjacent to any stone in a shape.
 
-# Test technique
+## Rules Recap
+1. The goban size is arbitrary (handled by the provided data structure).
+2. Two players: Black (`#`) and White (`o`).
+3. Stones are placed one per turn; positions outside the provided grid are considered `OUT`.
+4. A shape is taken when it has no liberties.
 
-Le thème de ce test est le jeu de go.
+## Task
+Write the function that returns whether the stone at `(x, y)` is taken:
+- Python: implement `Goban.is_taken(self, x, y)` in `python/goban.py`.
+- Java: implement `Goban.isTaken(int x, int y)` in `java/src/main/java/com/example/goban/Goban.java`.
 
-Le but est d'écrire une fonction qui détermine si la pierre à une position x, y sur un goban est prise ou pas.
+Return `True` / `true` only if the stone exists at `(x, y)` and the entire connected shape of that color has zero liberties.
 
-Vocabulaire :
+You may add helper functions / parameters if needed while keeping clear, idiomatic code.
 
-* Goban : le plateau sur lequel on place des pierres pour jouer
-* Forme : un groupe d'une ou plusieurs pierres adjacente de la même couleur (adjacente : des pierres qui sont à gauche, droite, dessus, dessous l'une de l'autre, les diagonales ne comptent pas)
-* Liberté : espace vide adjacent à une forme
+Make use of the provided status accessors:
+- Python: `get_status(x, y)` returns `Status.BLACK`, `Status.WHITE`, `Status.EMPTY`, or `Status.OUT`.
+- Java: `getStatus(x, y)` returns the equivalent `Status` enum values.
 
-Rappel des règles :
+The return values are:
+- `Status.BLACK`: when the stone at position x, y is black
+- `Status.WHITE`: when the stone at the x position, y is white
+- `Status.EMPTY`: when there is no stone at position x, y
+- `Status.OUT`: when the position x, y is out of the goban
 
-1. Le goban a une taille indéfinie
-2. Il y a deux joueurs et chacun joue une couleur de pierre : noir ou blanc
-3. Les pierres sont posées les unes après les autres chacun son tour
-5. Lorsqu'une forme n'a plus de liberté elle est prise
-
-L'objectif du test est d'écrire une fonction `is_taken` qui prend en paramètre x, y et qui retourne vrai si la pierre à la position x, y est prise et faux sinon.
-Pour faire cette fonction on se base sur une fonction `get_status(x, y)` qui retourne :
-
-* Status.BLACK : quand la pierre à la position x, y est noire
-* Status.WHITE : quand la pierre à la position x, y est blanche
-* Status.EMPTY : quand il n'y a pas de pierre à la position x, y
-* Status.OUT : quand la position x, y est hors du goban
-
-
-Complétez la méthode `Goban.is_taken` avec votre solution (vous pouvez ajouter des paramètres à la méthode si besoin). Celle-ci doit respecter les bonnes pratiques du Python.
-Vous pouvez tester votre solution à tout moment avec `py.test` (les tests sont dans le fichier test_goban.py).
-
-Exemples :
-
-```
-# = noir
-o = blanc
-. = vide
-
-
-.#.
-#o#    <= o est prise parce qu'elle n'a pas de liberté, elle n'a aucun espace vide adjacent
-.#.
-
-
-...
-#o#    <= o n'est pas prise parce qu'elle a une liberté au dessus
-.#.
-
-
-o#    <= o est prise parce qu'elle n'a pas de liberté (le haut et la gauche sont hors du goban donc ce ne sont pas des libertés)
-#.
-
-
-oo.
-##o    <= la forme # est prise parce qu'elle n'a pas de liberté
-o#o
-.o.
-
-
-oo.
-##.   <= la forme # n'est pas prise parce qu'elle a une liberté en x=2, y=1 (0, 0 en haut à gauche)
-o#o
-.o.
-```
-
----
-
-[EN]
-
-# How to launch the project
-
-To start and launch tests:
-
-```
-$ git clone https://github.com/lumapps/test-goban.git
-$ cd test-goban
-$ python3 -m venv venv
-$ source venv/bin/activate
-$ pip install -r requirements.txt
-$ pytest .
-```
-
-# Technical Test
-
-The theme of this test is the game of go.
-
-The goal is to write a function that determines whether the stone at an x, y position on a goban is taken or not.
-
-Vocabulary:
-- Goban: the board on which stones are placed to play
-- Shape: a group of one or more adjacent stones of the same color (adjacent: stones that are left, right, top, bottom of each other, diagonals do not count)
-- Freedom: empty space adjacent to a shape
-
-Reminder of the rules:
-
-1. The goban has an indefinite size
-2. There are two players and everyone plays a stone color: black or white
-3. The stones are laid one after the other each turn
-4. When a form has no more freedom it is taken
-
-The objective of the test is to write an is_taken function which takes in parameter x, y and which returns true if the stone with the position x, is taken there and false otherwise. To do this function we use a function get_status (x, y) which returns:
-
-- Status.BLACK: when the stone at position x, y is black
-- Status.WHITE: when the stone at the x position, y is white
-- Status.EMPTY: when there is no stone at position x, y
-- Status.OUT: when the position x, y is out of the goban
-
-Complete the Goban.is_taken method with your solution (you can add parameters to the method if needed). This one must respect the good practices of Python. You can test your solution at any time with py.test (the tests are in the file test_goban.py).
-
-Examples:
+## Examples
 ```
 # = black
 o = white
 . = empty
 
-
-. #.
-# o # <= o is taken because she has no freedom, she has no adjacent empty space
-. #.
-
+.#.
+#o#    <= o is taken: no adjacent empty points
+.#.
 
 ...
-# o # <= o is not taken because she has a freedom over
-. #.
+#o#    <= o is not taken: liberty above
+.#.
 
-
-o # <= o is taken because she has no freedom (the top and the left are out of the goban so they are not freedoms)
+o#    <= o is taken: top and left are OUT (not liberties)
 #.
 
-
 oo.
-## o <= the form # is taken because it has no freedom
-o o #
+##o    <= black shape (#) is taken: no liberties
+o#o
 .o.
 
-
 oo.
-##. <= the form # is not taken because it has a freedom in x = 2, y = 1 (0, 0 on the top left)
-o o #
+##.    <= black shape (#) is not taken: liberty at x=2, y=1 (0,0 top-left)
+o#o
 .o.
 ```
+
+## Running Tests
+### Python
+From repository root:
+```
+git clone https://github.com/lumapps/test-goban.git
+cd test-goban/python
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+PYTHONPATH=. pytest test_goban.py
+```
+(Tests use direct module import `goban`; running inside `python/` ensures it is on the module search path.)
+
+### Java
+From repository root:
+```
+git clone https://github.com/lumapps/test-goban.git
+cd test-goban/java
+./gradlew test
+```
+
+## Files of Interest
+- Python implementation: `python/goban.py`
+- Python tests: `python/test_goban.py`
+- Java implementation: `java/src/main/java/com/example/goban/Goban.java`
+- Java tests: `java/src/test/java/com/example/goban/GobanTest.java`
+
+Focus only on implementing the capture logic; no additional features required.
