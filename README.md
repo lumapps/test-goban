@@ -62,21 +62,21 @@ o#o
 From repository root:
 ```
 git clone https://github.com/lumapps/test-goban.git
-cd test-goban
+cd test-goban/python
 python3 -m venv venv
 source venv/bin/activate
-pip install -r python/requirements.txt
-pytest python
+pip install -r requirements.txt
+pytest .
 ```
-(Or activate the venv and run `pytest .` from inside `python/`.)
+(Tests use direct module import `goban`; running inside `python/` ensures it is on the module search path.)
 
 ### Java
 From repository root:
 ```
-cd java
+git clone https://github.com/lumapps/test-goban.git
+cd test-goban/java
 ./gradlew test
 ```
-(First clone and enter the repository if you have not already.)
 
 ## Files of Interest
 - Python implementation: `python/goban.py`
