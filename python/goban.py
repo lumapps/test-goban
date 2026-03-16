@@ -1,5 +1,4 @@
 import enum
-from typing import List
 
 
 class Status(enum.Enum):
@@ -14,7 +13,7 @@ class Status(enum.Enum):
 
 
 class Goban:
-    def __init__(self, goban: List[str]) -> None:
+    def __init__(self, goban: list[str]) -> None:
         self.goban = goban
 
     def get_status(self, x: int, y: int) -> Status:
