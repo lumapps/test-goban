@@ -1,4 +1,4 @@
-from goban import Goban
+from .goban import Goban
 
 
 def test_white_is_taken_when_surrounded_by_black() -> None:
