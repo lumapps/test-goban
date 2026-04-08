@@ -1,0 +1,30 @@
+{
+  "name": "ts-test-goban",
+  "version": "1.0.0",
+  "description": "Lumapps TypeScript Backend Technical Test",
+  "author": "Lumapps",
+  "license": "UNLICENSED",
+  "private": true,
+  "homepage": "https://github.com/lumapps/test-goban#readme",
+  "bugs": {
+    "url": "https://github.com/lumapps/test-goban/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lumapps/test-goban.git"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+
+  "type": "module",
+
+  "scripts": {
+    "pretest": "tsc",
+    "test":  "node --test ./*.spec.js"
+  },
+  "devDependencies": {
+    "@types/node": "24.1.0",
+    "typescript": "6.0.2"
+  }
+}
