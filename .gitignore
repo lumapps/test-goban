@@ -1,5 +1,7 @@
 java/.gradle
 java/build
+typescript/node_modules
+typescript/*.js
 __pycache__
 venv
 .idea

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    /* Node 24 configuration */
+    "lib": [
+      "es2024",
+      "ESNext.Array",
+      "ESNext.Collection",
+      "ESNext.Error",
+      "ESNext.Iterator",
+      "ESNext.Promise"
+    ],
+    "module": "nodenext",
+    "target": "es2024",
+
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node16",
+  
+    /* Additional settings */
+    "types": ["node"],                                   /* Specify registered @types */
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+    "rewriteRelativeImportExtensions": true,             /* Allow import .ts files */
+  }
+}

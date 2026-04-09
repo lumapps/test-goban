@@ -20,6 +20,7 @@ Implement a method that determines whether the stone at position `x, y` on a gob
 Write the function that returns whether the stone at `(x, y)` is taken:
 - Python: implement `Goban.is_taken(self, x, y)` in `python/goban.py`.
 - Java: implement `Goban.isTaken(int x, int y)` in `java/src/main/java/com/example/goban/Goban.java`.
+- TypeScript: implement `Goban.isTaken(x: number, y: number)` in `typescript/goban.ts`.
 
 Return `True` / `true` only if the stone exists at `(x, y)` and the entire connected shape of that color has zero liberties.
 
@@ -28,6 +29,7 @@ You may add helper functions / parameters if needed while keeping clear, idiomat
 Make use of the provided status accessors:
 - Python: `get_status(x, y)` returns `Status.BLACK`, `Status.WHITE`, `Status.EMPTY`, or `Status.OUT`.
 - Java: `getStatus(x, y)` returns the equivalent `Status` enum values.
+- TypeScript: `getStatus(x, y)` returns the equivalent `Status` enum values.
 
 The return values are:
 - `Status.BLACK`: when the stone at position x, y is black
@@ -84,10 +86,22 @@ cd test-goban/java
 ./gradlew test
 ```
 
+### TypeScript
+From repository root:
+```
+git clone https://github.com/lumapps/test-goban.git
+cd test-goban/typescript
+npm install
+npm test
+```
+
+
 ## Files of Interest
 - Python implementation: `python/goban.py`
 - Python tests: `python/test_goban.py`
 - Java implementation: `java/src/main/java/com/example/goban/Goban.java`
 - Java tests: `java/src/test/java/com/example/goban/GobanTest.java`
+- TypeScript implementation: `typescript/goban.ts`
+- TypeScript tests: `typescript/goban.spec.ts`
 
 Focus only on implementing the capture logic; no additional features required.
