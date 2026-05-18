@@ -1,6 +1,6 @@
 # Goban Technical Test
 
-This repository contains the same technical test implemented in two languages: Python and Java.
+This repository contains the same technical test implemented in multiple languages: Python, Java, TypeScript, and Go.
 
 ## Goal
 Implement a method that determines whether the stone at position `x, y` on a goban (Go board) is taken (i.e. the entire shape it belongs to has no liberties).
@@ -21,6 +21,7 @@ Write the function that returns whether the stone at `(x, y)` is taken:
 - Python: implement `Goban.is_taken(self, x, y)` in `python/goban.py`.
 - Java: implement `Goban.isTaken(int x, int y)` in `java/src/main/java/com/example/goban/Goban.java`.
 - TypeScript: implement `Goban.isTaken(x: number, y: number)` in `typescript/goban.ts`.
+- Go: implement `Goban.IsTaken(x, y int) bool` in `go/goban.go`.
 
 Return `True` / `true` only if the stone exists at `(x, y)` and the entire connected shape of that color has zero liberties.
 
@@ -30,6 +31,7 @@ Make use of the provided status accessors:
 - Python: `get_status(x, y)` returns `Status.BLACK`, `Status.WHITE`, `Status.EMPTY`, or `Status.OUT`.
 - Java: `getStatus(x, y)` returns the equivalent `Status` enum values.
 - TypeScript: `getStatus(x, y)` returns the equivalent `Status` enum values.
+- Go: `GetStatus(x, y int)` returns the equivalent `Status` values.
 
 The return values are:
 - `Status.BLACK`: when the stone at position x, y is black
@@ -95,6 +97,13 @@ npm install
 npm test
 ```
 
+### Go
+From repository root:
+```
+git clone https://github.com/lumapps/test-goban.git
+cd test-goban/go
+go test .
+```
 
 ## Files of Interest
 - Python implementation: `python/goban.py`
@@ -103,5 +112,7 @@ npm test
 - Java tests: `java/src/test/java/com/example/goban/GobanTest.java`
 - TypeScript implementation: `typescript/goban.ts`
 - TypeScript tests: `typescript/goban.spec.ts`
+- Go implementation: `go/goban.go`
+- Go tests: `go/goban_test.go`
 
 Focus only on implementing the capture logic; no additional features required.
