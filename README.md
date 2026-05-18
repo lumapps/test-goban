@@ -1,6 +1,6 @@
 # Goban Technical Test
 
-This repository contains the same technical test implemented in multiple languages: Python, Java, TypeScript, and Go.
+This repository contains the same technical test implemented in multiple languages: Python, Java, TypeScript, Go, and PHP.
 
 ## Goal
 Implement a method that determines whether the stone at position `x, y` on a goban (Go board) is taken (i.e. the entire shape it belongs to has no liberties).
@@ -22,6 +22,7 @@ Write the function that returns whether the stone at `(x, y)` is taken:
 - Java: implement `Goban.isTaken(int x, int y)` in `java/src/main/java/com/example/goban/Goban.java`.
 - TypeScript: implement `Goban.isTaken(x: number, y: number)` in `typescript/goban.ts`.
 - Go: implement `Goban.IsTaken(x, y int) bool` in `go/goban.go`.
+- PHP: implement `Goban::isTaken(int $x, int $y): bool` in `php/src/Goban.php`.
 
 Return `True` / `true` only if the stone exists at `(x, y)` and the entire connected shape of that color has zero liberties.
 
@@ -32,6 +33,7 @@ Make use of the provided status accessors:
 - Java: `getStatus(x, y)` returns the equivalent `Status` enum values.
 - TypeScript: `getStatus(x, y)` returns the equivalent `Status` enum values.
 - Go: `GetStatus(x, y int)` returns the equivalent `Status` values.
+- PHP: `getStatus(int $x, int $y): Status` returns the equivalent `Status` enum cases.
 
 The return values are:
 - `Status.BLACK`: when the stone at position x, y is black
@@ -105,6 +107,15 @@ cd test-goban/go
 go test .
 ```
 
+### PHP
+From repository root:
+```
+git clone https://github.com/lumapps/test-goban.git
+cd test-goban/php
+composer install
+./vendor/bin/phpunit
+```
+
 ## Files of Interest
 - Python implementation: `python/goban.py`
 - Python tests: `python/test_goban.py`
@@ -114,5 +125,7 @@ go test .
 - TypeScript tests: `typescript/goban.spec.ts`
 - Go implementation: `go/goban.go`
 - Go tests: `go/goban_test.go`
+- PHP implementation: `php/src/Goban.php`
+- PHP tests: `php/tests/GobanTest.php`
 
 Focus only on implementing the capture logic; no additional features required.
