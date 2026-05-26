@@ -59,3 +59,13 @@ def test_square_shape_is_taken() -> None:
     assert goban.is_taken(0, 2) is True
     assert goban.is_taken(1, 1) is True
     assert goban.is_taken(1, 2) is True
+
+
+def test_corner_stone_is_taken_using_board_edges() -> None:
+    # the black corner stone is walled in by white and the board edges out
+    goban = Goban([
+        '#o',
+        'o.',
+    ])
+
+    assert goban.is_taken(0, 0) is True
